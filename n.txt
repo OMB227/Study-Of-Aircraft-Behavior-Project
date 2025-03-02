@@ -1,0 +1,8 @@
+------------------------------------------------Choisir le module d'elasticite------------------------------------------------
+Designation						     E_yg[Mpa]				 Re[MPa]
+
+Composite carbone epoxy				E1=118000               300-600
+Alliage D'alluminium				E2=72000				200-550
+Magnesium 							E3=47000				10-200
+Acier(Fe)							E4=200000				400-1800
+                                                  
