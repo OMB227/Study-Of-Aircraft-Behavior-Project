@@ -171,7 +171,7 @@ The combination of these loads determines the stress distribution within the win
 Below are some visualizations of our analysis:
 
 ### Lift Distribution  
-![Lift Distribution](basic-simulation%20output/lift_distribution.png)
+![Lift Distribution](Basic-Simulation-Outputs/Lift-Distribution-Over-The-Wing.jpg)
 
 ### Wing Structure  
 ![Wing Structure](basic-simulation%20output/wing_structure.png)
