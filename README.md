@@ -2,98 +2,199 @@
 
 ## Project Overview
 
-This project investigates the aerodynamic behavior of an aircraft using MATLAB-based simulations. It specifically explores **lift distribution** over the wing, **wing structural design**, and **performance evaluation** through computational models. The analysis is based on Oscar Shrink's lift distribution method, with numerical results validated through MATLAB simulations.
+This project focuses on analyzing aircraft wing structures and lift distribution using computational simulations. The MATLAB-based implementation investigates aerodynamic properties using techniques such as Oscar Shrink Lift Distribution and Prandtl's Lifting Line Theory. Our simulations aim to enhance the understanding of aircraft performance and structural efficiency.
 
-### Project Supervisor
-
-**[Include Supervisor's Name if Applicable]**
-
-### Author
-
-**Oumarou Moussa Bola**
+### Project Contributors
+- **Oumarou Moussa Bola**
+- **Nouaili Mariem**
 
 ## Repository Contents
 
-This repository contains MATLAB scripts and outputs that model aircraft lift distribution and performance analysis. Key components include:
-
-- **`oscar_shrink.m`** - MATLAB script implementing the Oscar Shrink lift distribution model.
-- **`PFA.code`** - Performance evaluation module.
-- **`basic-simulation-output/`** - Folder containing plots that illustrate the simulation results.
+This repository contains:
+- **PFA.code**: Provides insights into the aerodynamic performance analysis.
+- **Oscar Shrink Code**: Implements the Oscar Shrink method for lift distribution calculations.
+- **Basic Simulation Output**: Contains generated plots illustrating key findings from our simulations.
 
 ## Theoretical Background
 
-### 1. Lift Distribution over a Wing
+### Lift Distribution
 
-The **Oscar Shrink Lift Distribution** describes how lift varies along the aircraft wing. This is governed by the fundamental lift equation:
+The lift force $L$ acting on an aircraft wing can be expressed as:
 
-\(L = \frac{1}{2} \rho V^2 S C_L\)
-
-where:
-
-- \(L\) = Lift force (N)
-- \(\rho\) = Air density (kg/m³)
-- \(V\) = Free-stream velocity (m/s)
-- \(S\) = Wing surface area (m²)
-- \(C_L\) = Lift coefficient (dimensionless)
-
-Oscar Shrink’s method refines this by considering the elliptical distribution of lift along the wingspan:
-
-\(L(y) = C_L \frac{1}{2} \rho V^2 \frac{b}{2} \left(1 - \frac{y^2}{(b/2)^2}\right)\)
+```math
+L = \frac{1}{2} \rho V^2 S C_L
+```
 
 where:
+- $\rho$ = air density,
+- $V$ = freestream velocity,
+- $S$ = wing surface area,
+- $C_L$ = lift coefficient.
 
-- \(L(y)\) = Lift at a given spanwise position \(y\)
-- \(b\) = Wingspan (m)
-- \(y\) = Spanwise location from the centerline (m)
+The **Oscar Shrink Lift Distribution** method models how lift varies along the wingspan, helping optimize aerodynamic efficiency.
 
-This method provides a **more realistic approximation** of lift distribution for subsonic aircraft wings.
+### Prandtl's Lifting Line Theory
 
-### 2. Aircraft Wing Structure
+Prandtl's Lifting Line Theory provides a mathematical framework to analyze lift along a finite wing:
 
-The wing structure is designed to withstand aerodynamic loads while maintaining optimal performance. Key considerations include:
+```math
+\Gamma(y) = \frac{2 V \alpha}{\pi} \int_{-b/2}^{b/2} \frac{C_L(y') dy'}{(y - y')}
+```
 
-- **Aspect Ratio (AR):**
+where:
+- $\Gamma(y)$ is the circulation distribution,
+- $\alpha$ is the angle of attack,
+- $b$ is the wingspan.
 
-  \(AR = \frac{b^2}{S}\)
+This equation helps predict induced drag and optimize wing performance.
 
-  Higher aspect ratios improve efficiency but may introduce structural challenges.
+### Structural Analysis and Calculations
 
-- **Taper Ratio (λ):**
+To ensure the structural integrity of the aircraft wing, various engineering methods are used to analyze internal forces and deformations.
 
-  \(\lambda = \frac{C_t}{C_r}\)
+#### Virtual Work Method
+The **Virtual Work Method** is used to determine displacements and deformations of structures under external forces. The principle states that the work done by external forces is equal to the internal virtual work:
 
-  where \(C_t\) and \(C_r\) are the tip and root chord lengths, respectively. Tapering affects both aerodynamic efficiency and structural weight.
+```math
+\delta W_{ext} = \delta W_{int}
+```
 
-- **Structural Load Analysis:**
-  The bending moment \(M(y)\) along the span is given by:
+This method is particularly useful for analyzing deflections in aircraft wing structures.
 
-  \(M(y) = \int_{y}^{b/2} L(y') y' dy'\)
+#### Shear Force Calculation
+The **shear force** at a given section of the wing is computed using:
 
-  This integral determines the stress distribution that the wing must withstand.
+```math
+V(x) = \int_{x}^{L} q(x) dx
+```
 
-### 3. MATLAB Implementation
+where:
+- $V(x)$ is the shear force at position $x$,
+- $q(x)$ is the distributed load (e.g., lift force),
+- $L$ is the span of the wing.
+### Castigliano’s Theorem
 
-The project employs MATLAB to:
+Castigliano’s method is a principle used in structural mechanics to determine displacements in a structure subjected to external loads. It states that the partial derivative of the internal strain energy $W_{\text{int}}$, expressed as a function of external forces, with respect to an applied force $P_i$, gives the displacement $\delta_i$ at the point of application of $P_i$:
 
-- Simulate lift distribution using Oscar Shrink’s method.
-- Analyze structural loading through numerical integration.
-- Generate **plots available in** `basic-simulation-output/`, including:
-  - Lift coefficient distribution.
-  - Pressure coefficient variations.
-  - Structural bending moment analysis.
+$$
+\frac{\partial W_{\text{int}}}{\partial P_i} = \delta_i
+$$
+
+Using Castigliano's theorem, the shear force at a point $M$ along the beam can be determined as:
+
+$$
+V(M) = \frac{\partial W_{\text{int}}}{\partial F}
+$$
+
+where $F$ is an applied force at point $M$ with coordinate $x_M$.
+
+#### Internal Force Distribution
+
+For the segment $[M, L]$, where $x_M < x_G < x_L$:
+
+$$T_{\text{int}, G} = T_{\text{ext}, G}^{+} = \begin{bmatrix}
+\int_{x_M}^{x_L} p(x) \cdot \mathbf{y} \,dx \\
+\int_{x_M}^{x_L} p(x) \cdot (x - x_G) \,dx \cdot \mathbf{z}
+\end{bmatrix}_G $$
+
+For the segment $[O, M]$, where $0 < x_G < x_M$:
+
+```math
+T_{\text{int}, G} = T_{\text{ext}, G}^{+} =
+\begin{pmatrix}
+\int_{0}^{x_M} p(x) \cdot \mathbf{y} \,dx \\
+\int_{0}^{x_M} p(x) \cdot (x_G - x) \,dx \cdot \mathbf{z}
+\end{pmatrix}_G
++
+\begin{pmatrix}
+F \cdot \mathbf{y} \\
+F \cdot (x_M - x_G) \cdot \mathbf{z}
+\end{pmatrix}_G
++
+\begin{pmatrix}
+\int_{x_G}^{x_L} p(x) \cdot \mathbf{y} \,dx \\
+\int_{x_G}^{x_L} p(x) \cdot (x - x_G) \,dx \cdot \mathbf{z}
+\end{pmatrix}_G
+```
+Thus, the internal force tensor is:
+
+$$T_{\text{int}, G} =
+\begin{bmatrix}
+\int_{0}^{x_M} p(x) \cdot \mathbf{y} \,dx + \int_{x_G}^{x_L} p(x) \cdot \mathbf{y} \,dx + F \cdot \mathbf{y} \\
+\int_{x_G}^{x_M} p(x) \cdot (x - x_G) \,dx \cdot \mathbf{z} + \int_{x_G}^{x_L} p(x) \cdot (x - x_G) \,dx \cdot \mathbf{z} + F (x_M - x_G) \cdot \mathbf{z}
+\end{bmatrix}_G$$
+
+#### Bending Moment Calculation
+
+For the segment $[M, L]$:
+
+$$
+M_{fz} = \int_{x_M}^{x_L} p(x) \cdot (x - x_G) \,dx
+$$
+
+For the segment $[O, M]$:
+
+$$M_{fz} = \int_{x_G}^{x_M} p(x) \cdot (x - x_G) \,dx + \int_{x_G}^{x_L} p(x) \cdot (x - x_G) \,dx + F (x_M - x_G)$$
+
+Under the **Navier-Bernoulli hypothesis**, the effects of shear force are neglected, leading to:
+
+$$V(M) = \left(\frac{\partial W_{\text{int}}}{\partial F}\right)_{F=0}$$
+
+
+$$V(M)=\frac{1}{EI}\int_{0}^{x_M}(x_M - x_G)\left[\int_{x_G}^{x_M} p(x) \cdot (x - x_G) \,dx + \int_{x_G}^{x_L} p(x) \cdot (x - x_G) \,dx\right]$$
+
+
+where:
+- $E$ is the Young's modulus of the material,
+- $I$ is the moment of inertia of the beam cross-section.
+
+This formulation is crucial for predicting deflections and structural behavior in aircraft wing analysis.
+#### Wing Bending Moment Calculation
+The **bending moment** along the wing is given by:
+
+```math
+M(x) = \int_{x}^{L} V(x) dx
+```
+
+where $M(x)$ represents the internal moment at position $x$. This helps in assessing wing bending stresses.
+
+#### External Load Considerations
+Aircraft wings are subject to:
+- **Aerodynamic Loads** (Lift, Drag)
+- **Structural Loads** (Weight, Fuel, Engine Forces)
+- **Dynamic Loads** (Gusts, Maneuvers)
+
+The combination of these loads determines the stress distribution within the wing.
 
 ## Simulation Results
 
-Some key plots ill*ustrating the results include:*
+Below are some visualizations of our analysis:
 
+### Lift Distribution  
+![Lift Distribution](basic-simulation%20output/lift_distribution.png)
 
+### Wing Structure  
+![Wing Structure](basic-simulation%20output/wing_structure.png)
 
-## Conclusion
+### Oscar Shrink Lift Distribution  
+![Oscar Shrink](basic-simulation%20output/oscar_shrink.png)
 
-This study provides insights into aircraft lift characteristics and structural considerations. By utilizing MATLAB-based simulations, it enhances understanding of aerodynamics and wing design optimization.
+## Getting Started
 
+### Prerequisites
+To run the MATLAB simulations, ensure you have:
+- MATLAB installed (R2020a or later recommended)
+- Required MATLAB toolboxes for aerodynamics and simulations
+
+### Running the Code
+1. Clone this repository:
+   ```sh
+   git clone https://github.com/OMB227/Study-Of-Aircraft-Behavior-Project.git
+   ```
+2. Open MATLAB and navigate to the repository directory.
+3. Run `PFA.code` or `Oscar Shrink Code` to start the analysis.
 ## Contact
-
-📧 **[oumarou@aims.ac.za](mailto\:oumarou@aims.ac.za)**\
-🔗 **Repository:** [GitHub](https://github.com/OMB227/Study-Of-Aircraft-Behavior-Project.git)
+For more information, feel free to reach out:  
+📧 **oumarou@aims.ac.za**  
+🔗 **Repository**: [GitHub Repository](https://github.com/OMB227/Study-Of-Aircraft-Behavior-Project.git)
 
