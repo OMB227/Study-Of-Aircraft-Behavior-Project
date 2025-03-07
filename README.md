@@ -195,6 +195,6 @@ To run the MATLAB simulations, ensure you have:
 3. Run `PFA.code` or `Oscar Shrink Code` to start the analysis.
 ## Contact
 For more information, feel free to reach out:  
-📧 **oumarou@aims.ac.za**  
+📧 **moussabolaoumarou@gmailcom**  
 🔗 **Repository**: [GitHub Repository](https://github.com/OMB227/Study-Of-Aircraft-Behavior-Project.git)
 
