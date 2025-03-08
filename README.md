@@ -167,6 +167,27 @@ Aircraft wings are subject to:
 The combination of these loads determines the stress distribution within the wing.
 
 ## Simulation Results
+### Table 1: Parameters of the Fi-156
+
+| **Parameter**      | **Value**      |
+|--------------------|---------------|
+| **Envergure**      | **14.25 m**    |
+| **Longueur**       | 9.90 m         |
+| Hauteur           | 3.05 m         |
+| **Surface alaire** | 26 m²          |
+| MTOW              | 1320 kg        |
+| $V_{\text{max}}$           | 175 km/h       |
+| **Stall speed**    | 46 km/h        |
+| **Range**         | 385 km         |
+
+### Table 2: Material Properties
+
+| **Property**            | **Value**            |
+|-------------------------|---------------------|
+| **Masse volumique**     | ρ = 2700 kg/m³      |
+| **Module de Young**     | E = 65000 MPa       |
+| **Poisson's ratio**     | ν = 0.33            |
+| **Résistance élastique** | Rₑ = 190 MPa       |
 
 Below are some visualizations of our analysis:
 
