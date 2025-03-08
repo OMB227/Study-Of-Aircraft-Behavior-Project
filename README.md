@@ -176,8 +176,8 @@ Below are some visualizations of our analysis:
 ### Displacement Over the Wing  
 ![Wing Structure](Basic-Simulation-Outputs/DISPLACEMENT-Over-The-Wing.jpg)
 
-### Oscar Shrink Lift Distribution  
-![Oscar Shrink](basic-simulation%20output/oscar_shrink.png)
+### Tangential Stress  
+![Effort Tranchant](Basic-Simulation-Outputs/Effort-Tranchant.jpg)
 
 ## Getting Started
 
