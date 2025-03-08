@@ -167,6 +167,8 @@ Aircraft wings are subject to:
 The combination of these loads determines the stress distribution within the wing.
 
 ## Simulation Results
+## Architectural Plan Fi-156
+![Architectural Plan FI-156](image.png)
 ### Table 1: Parameters of the Fi-156
 
 | **Parameter**      | **Value**      |
