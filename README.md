@@ -165,7 +165,9 @@ Aircraft wings are subject to:
 - **Dynamic Loads** (Gusts, Maneuvers)
 
 The combination of these loads determines the stress distribution within the wing.
-
+## Case Study : Fi-156
+The Fieseler Fi 156 is a German military reconnaissance aircraft of the Second World War, manufactured by the Fieseler Firm and designed in 1935. It is nicknamed Storch (stork in German) because of its high-legged landing gear. Equivalent to the American Piper L-4 Grass Hopper or Stimson L-5 Sentinel, it excelled in its observation missions, transport of personalities or equipment, and medical evacuation. From 1935 to 1945, the Luftwaffe used approximately 2,900 Fieseler Fi 156s, on all fronts and throughout the war. Indeed, it only needed 65 m to take off and less than 20 m was enough to land. The stall speed was very low, less than 50 km/h, and the maximum speed was 170 km/h.
+![Architectural Plan FI-156](image.png)
 ## Simulation Results
 ## Architectural Plan Fi-156
 ![Architectural Plan FI-156](image.png)
