@@ -177,7 +177,7 @@ Below are some visualizations of our analysis:
 ![Wing Structure](Basic-Simulation-Outputs/DISPLACEMENT-Over-The-Wing.jpg)
 
 ### Tangential Stress  
-![Effort Tranchant](Basic-Simulation-Outputs/Effort-Tranchant.jpg)
+![Bending Moment](Basic-Simulation-Outputs/Moment-Flechissant.jpg)
 
 ## Getting Started
 
