@@ -173,8 +173,8 @@ Below are some visualizations of our analysis:
 ### Lift Distribution  
 ![Lift Distribution](Basic-Simulation-Outputs/Lift-Distribution-Over-The-Wing.jpg)
 
-### Wing Structure  
-![Wing Structure](basic-simulation%20output/wing_structure.png)
+### Displacement Over the Wing  
+![Wing Structure](Basic-Simulation-Outputs/DISPLACEMENT-Over-The-Wing.jpg)
 
 ### Oscar Shrink Lift Distribution  
 ![Oscar Shrink](basic-simulation%20output/oscar_shrink.png)
